@@ -2,10 +2,13 @@ import pickle
 
 
 class FilterIO:
-    def __init__(self):
+    def __init__(self, path=None):
         self.__backgroundImg = None
         self.__blockXMLData = None
         self.__filterData = None
+
+        if path is not None:
+            self.loadFilterData(path)
 
     def loadFilterData(self, path):
         with open(path, "rb") as f:
@@ -22,7 +25,7 @@ class FilterIO:
     def getBackgroundImg(self):
         return self.__backgroundImg
 
-    def getFilterData(self):
+    def getFilterCode(self):
         return self.__filterData
 
     def setBlockXMLData(self, data):
@@ -31,5 +34,5 @@ class FilterIO:
     def setBackgroundImg(self, data):
         self.__backgroundImg = data
 
-    def setFilterData(self, data):
+    def setFilterCode(self, data):
         self.__filterData = data
