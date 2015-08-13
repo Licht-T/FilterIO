@@ -8,14 +8,14 @@ class FilterIO:
         self.__filterData = None
 
         if path is not None:
-            self.loadFilterData(path)
+            self.load(path)
 
-    def loadFilterData(self, path):
+    def load(self, path):
         with open(path, "rb") as f:
             tmp_dict = pickle.load(f)
         self.__dict__.update(tmp_dict)
 
-    def saveFilterData(self, path):
+    def save(self, path):
         with open(path, "wb") as f:
             pickle.dump(self.__dict__, f, pickle.HIGHEST_PROTOCOL)
 
